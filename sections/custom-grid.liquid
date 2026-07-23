@@ -60,24 +60,26 @@
 
   .cg__overlay { position: fixed; inset: 0; background: rgba(0,0,0,.45); display: grid; place-items: center; padding: 20px; z-index: 9999; }
   .cg__overlay[hidden] { display: none; }
-  .cg__popup { width: 311px; max-width: 100%; height:447px; background: #fff; position: relative; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,.2); }
+  .cg__popup { width: 320px; max-width: 100%; background: #fff; position: relative; padding: 32px 20px 20px; box-shadow: 0 2px 4px rgba(0,0,0,.2); }
   .cg__close { position: absolute; top: 12px; right: 14px; background: none; border: none; font-size: 20px; cursor: pointer; line-height: 1; }
-  .cg__popup-top { display: flex; gap: 16px; align-items: flex-start; }
+  .cg__popup-top { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 0px; }
   .cg__popup-img { width: 120px; height: 140px; flex: none; object-fit: cover; background: #eee; }
-  .cg__popup-name { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 16px; line-height: 1.2; margin: 2px; gap: 6px; }
-  .cg__popup-price { font-family: 'Lustria', Georgia, serif; font-weight: 400; font-size: 16px; margin: 6px 0; }
-  .cg__popup-desc { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 14px; line-height: 1.25; letter-spacing: -0.01em; color: #000; margin: 0; }
-  .cg__field { margin-top: 12px; }
-  .cg__label { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 14px; color: #333333; margin-bottom: 6px; }
+  .cg__popup-name { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 16px; line-height: 1; margin: 0; }
+  .cg__popup-price { font-family: 'Lustria', Georgia, serif; font-weight: 400; font-size: 16px; margin: 10px 0 0; }
+  .cg__popup-desc { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 14px; line-height: 1; letter-spacing: -0.01em; color: #000; margin: 0; }
+  .cg__field { margin-top: 0px; }
+  .cg__label { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 14px; color: #333; margin-bottom: 0px; }
   .cg__swatches { display: flex; border: 1px solid #000; }
-  .cg__swatch { flex: 1; display: flex; align-items: center; gap: 10px; padding: 12px 14px 12px 20px; font-family: 'Jost', sans-serif; font-size: 18px; font-weight: 400; letter-spacing: -0.02em; text-transform: capitalize; background: none; border: none; text-align: left; cursor: pointer; color: #000; position: relative; }
-  .cg__swatch-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; flex: none; border: 0.5px solid rgba(0,0,0,.4); }
+  .cg__swatch { position: relative; flex: 1; display: flex; align-items: center; padding: 8px 8px 8px 14px; font-family: 'Jost', sans-serif; font-size: 18px; font-weight: 400; letter-spacing: -0.02em; text-transform: capitalize; background: none; border: none; text-align: left; cursor: pointer; color: #000; }
+  .cg__swatch-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; border: 0.5px solid rgba(0,0,0,.4); }
   .cg__swatch + .cg__swatch { border-left: 1px solid #000; }
   .cg__swatch.is-selected { background: #000; color: #fff; }
-  .cg__selectwrap { position: relative; border: 1px solid #000; display: flex; align-items: center; }
-  .cg__selectwrap select { appearance: none; -webkit-appearance: none; border: none; background: none; font-family: 'Jost', sans-serif; font-size: 16px; letter-spacing: -0.02em; padding: 12px 14px; width: 100%; cursor: pointer; color: #000; }
-  .cg__chev { border-left: 1px solid #000; padding: 0 14px; align-self: stretch; display: grid; place-items: center; pointer-events: none; }
-  .cg__addcart { display: flex; align-items: center; justify-content: center; gap: 24px; width: 100%; background: #000; color: #fff; border: none; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: uppercase; padding: 14px; margin-top: 16px; }
+  .cg__selectwrap { position: relative; border: 1px solid #000; }
+  .cg__selectwrap select { appearance: none; -webkit-appearance: none; border: none; background: none; font-family: 'Jost', sans-serif; font-size: 16px; letter-spacing: -0.02em; padding: 10px 10px 10px 10px; width: 100%; cursor: pointer; color: #000; text-align: left; text-align-last: left; }
+  .cg__selectwrap select.cg--chosen { text-align: center; text-align-last: center; padding: 12px 52px; }
+  .cg__selectwrap select option { text-align: center; }
+  .cg__chev { position: absolute; right: 0; top: 0; bottom: 0; width: 44px; border-left: 1px solid #000; display: grid; place-items: center; pointer-events: none; }
+  .cg__addcart { display: flex; align-items: center; justify-content: center; gap: 30px; width: 100%; background: #000; color: #fff; border: none; cursor: pointer; font-family: 'Jost', sans-serif; font-size: 16px; font-weight: 400; text-transform: uppercase; padding: 14px; margin-top: 30px; }
   .cg__addcart .cg__arrow { transition: transform .28s ease; }
   .cg__addcart:hover .cg__arrow { transform: translateX(10px); }
 
@@ -162,6 +164,7 @@
 
   function buildSizes() {
     els.size.innerHTML = '<option value="">Choose your size</option>';
+    els.size.classList.remove('cg--chosen');
     if (sizeIdx === -1) return;
     uniqueValues(sizeIdx).forEach(function (size) {
       var o = document.createElement('option');
@@ -204,6 +207,7 @@
 
   function close() { overlay.hidden = true; }
   els.close.addEventListener('click', close);
+  els.size.addEventListener('change', function () { els.size.classList.toggle('cg--chosen', !!els.size.value); });
   overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 })();
